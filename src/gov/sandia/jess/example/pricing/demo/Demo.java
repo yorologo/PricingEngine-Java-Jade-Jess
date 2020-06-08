@@ -16,6 +16,10 @@ public class Demo {
 			processOrder(database, engine, 123);
 			processOrder(database, engine, 567);
 			processOrder(database, engine, 666);
+			// Orders HandsOn11
+			processOrder(database, engine, 415);
+			processOrder(database, engine, 125);
+			processOrder(database, engine, 181);
 
 		} catch (JessException e) {
 			e.printStackTrace();
