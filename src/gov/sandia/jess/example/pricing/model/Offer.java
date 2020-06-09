@@ -3,13 +3,24 @@ package gov.sandia.jess.example.pricing.model;
 import java.text.DecimalFormat;
 
 public class Offer {
-    private final float amount;
+    private float amount;
+    private float vouchers;
     private final String description;
-    private static DecimalFormat formatter = new DecimalFormat("-$0.00");
+    private static DecimalFormat formatter1 = new DecimalFormat("-$0.00");
+    private static DecimalFormat formatter2 = new DecimalFormat("$0");
 
     public Offer(String aDescription, float anAmount) {
         description = aDescription;
         amount = anAmount;
+    }
+
+    public Offer(String aDescription, float anAmount, float aVouchers) {
+        description = aDescription;
+        vouchers = aVouchers;
+    }
+
+    public Offer(String aDescription) {
+        description = aDescription;
     }
 
     public float getAmount() {
@@ -21,7 +32,13 @@ public class Offer {
     }
 
     public String toString() {
-        return description + ": " + formatter.format(amount);
+        if (vouchers > 0) {
+            return description + ": " + formatter2.format(Math.floor(vouchers));
+        } else if (amount > 0) {
+            return description + ": " + formatter1.format(amount);
+        } else {
+            return description;
+        }
     }
 
 }

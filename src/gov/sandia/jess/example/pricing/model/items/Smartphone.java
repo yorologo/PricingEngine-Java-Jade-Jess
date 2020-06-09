@@ -17,4 +17,8 @@ public class Smartphone {
         return brand;
     }
     
+    @Override
+    public String toString() {
+        return model + " by " + brand;
+    }
 }

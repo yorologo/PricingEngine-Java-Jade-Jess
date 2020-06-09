@@ -16,5 +16,10 @@ public class Computer {
     public String getBrand() {
         return brand;
     }
+
+    @Override
+    public String toString() {
+        return model + " by " + brand;
+    }
     
 }

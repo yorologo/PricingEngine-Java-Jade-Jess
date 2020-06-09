@@ -11,6 +11,12 @@ public class CatalogItem {
         price = aPrice;
     }
 
+    public CatalogItem(Object aDescription, int aPartNumber, float aPrice) {
+        description = aDescription.toString();
+        partNumber = aPartNumber;
+        price = aPrice;
+    }
+
     public int getPartNumber() {
         return partNumber;
     }
