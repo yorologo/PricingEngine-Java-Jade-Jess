@@ -4,10 +4,12 @@
 ;; using their properties
 
 (import gov.sandia.jess.example.pricing.model.*)
+(import gov.sandia.jess.example.pricing.model.items.*)
 (deftemplate Order       (declare (from-class Order)))
 (deftemplate OrderItem   (declare (from-class OrderItem)))
 (deftemplate CatalogItem (declare (from-class CatalogItem)))
 (deftemplate Customer    (declare (from-class Customer)))
+(deftemplate CreditCard    (declare (from-class CreditCard)))
 
 ;; Now define the pricing rules themselves. Each rule matches a set
 ;; of conditions and then creates an Offer object to represent a
@@ -42,7 +44,7 @@
     "When buying an iPhone 11 Pro with Banamex cards, offer 24 months without interest."
     (CatalogItem (partNumber ?partNumber) (description /iPhone 11 Pro by Apple/))
     (OrderItem (partNumber ?partNumber))
-    (OrderItem (creditCard /Banamex/))
+    (CreditCard (name /Banamex/))
     =>
     (add (new Offer "24 months without interest")))
 
@@ -50,7 +52,7 @@
     "In the purchase of a Samsung Note 11, with Liverpool VISA card, offer 12 months without interest."
     (CatalogItem (partNumber ?partNumber) (description /Note 11 by Samsung/))
     (OrderItem (partNumber ?partNumber))
-    (OrderItem (creditCard /Liverpool VISA/))
+    (CreditCard (name /Liverpool VISA/))
     =>
     (add (new Offer "12 months without interest")))
 

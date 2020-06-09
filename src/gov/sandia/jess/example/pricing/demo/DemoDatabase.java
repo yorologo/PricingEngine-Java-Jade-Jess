@@ -36,33 +36,33 @@ public class DemoDatabase implements Database {
 		ArrayList orderItems = new ArrayList();
 		orderItems.add(new OrderItem("CD Writer", 1234, 199.99f, 1));
 		orderItems.add(new OrderItem("AA Batteries", 4323, 4.99f, 2));
-		orders.put(new Integer(123), new Order(orderItems, customer));
+		orders.put(new Integer(123), new Order(orderItems, customer, new CreditCard("", "")));
 
 		customer = new Customer(1);
 		orderItems = new ArrayList();
 		orderItems.add(new OrderItem("Gold-tipped cable", 9876, 19.99f, 4));
-		orders.put(new Integer(567), new Order(orderItems, customer));
+		orders.put(new Integer(567), new Order(orderItems, customer, new CreditCard("", "")));
 
 		customer = new Customer(1);
 		orderItems = new ArrayList();
 		orderItems.add(new OrderItem("Incredibles DVD", 222123, 29.99f, 1));
-		orders.put(new Integer(666), new Order(orderItems, customer));
+		orders.put(new Integer(666), new Order(orderItems, customer, new CreditCard("", "")));
 
 		// Customers HandsOn11
 		customer = new Customer(1);
 		orderItems = new ArrayList();
-		orderItems.add(new OrderItem(new Smartphone("iPhone 11 Pro", "Apple"), 41165, 4200.99f, 1, new CreditCard("Banamex")));
-		orders.put(new Integer(415), new Order(orderItems, customer));
+		orderItems.add(new OrderItem(new Smartphone("iPhone 11 Pro", "Apple"), 41165, 4200.99f, 1));
+		orders.put(new Integer(415), new Order(orderItems, customer, new CreditCard("Banamex", "Bank issued")));
 
 		customer = new Customer(1);
 		orderItems = new ArrayList();
-		orderItems.add(new OrderItem(new Smartphone("Note 11", "Samsung"), 112647, 2600.99f, 1, new CreditCard("Liverpool VISA")));
-		orders.put(new Integer(125), new Order(orderItems, customer));
+		orderItems.add(new OrderItem(new Smartphone("Note 11", "Samsung"), 112647, 2600.99f, 1));
+		orders.put(new Integer(125), new Order(orderItems, customer, new CreditCard("Liverpool VISA", "Bank issued")));
 
 		customer = new Customer(1);
 		orderItems = new ArrayList();
 		orderItems.add(new OrderItem(new Computer("MacBook Air", "apple"), 28355, 1700.99f, 1)); 
-		orders.put(new Integer(181), new Order(orderItems, customer));
+		orders.put(new Integer(181), new Order(orderItems, customer, new CreditCard("", "")));
 	}
 
 	private void createCatalogItems() {

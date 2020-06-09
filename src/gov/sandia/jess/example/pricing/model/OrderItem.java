@@ -9,7 +9,6 @@ public class OrderItem {
     private float price;
     private int partNumber;
     private String description;
-    private String creditCard;
     private int quantity;
 
     public OrderItem(String aDescription, int aPartNumber, float aPrice, int aQuantity) {
@@ -24,23 +23,6 @@ public class OrderItem {
         description = aDescription.toString();
         price = aPrice;
         quantity = aQuantity;
-    }
-
-    // Card payment
-    public OrderItem(String aDescription, int aPartNumber, float aPrice, int aQuantity, CreditCard aCreditCard) {
-        partNumber = aPartNumber;
-        description = aDescription;
-        price = aPrice;
-        quantity = aQuantity;
-        creditCard = aCreditCard.getBank();
-    }
-
-    public OrderItem(Object aDescription, int aPartNumber, float aPrice, int aQuantity, CreditCard aCreditCard) {
-        partNumber = aPartNumber;
-        description = aDescription.toString();
-        price = aPrice;
-        quantity = aQuantity;
-        creditCard = aCreditCard.getBank();
     }
 
     public int getQuantity() {
@@ -61,10 +43,6 @@ public class OrderItem {
 
     public String getDescription() {
         return description;
-    }
-
-    public String getCreditCard() {
-        return creditCard;
     }
 
     public String toString() {

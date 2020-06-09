@@ -36,6 +36,7 @@ public class PricingEngine {
             engine.add(order);
             engine.add(order.getCustomer());
             engine.addAll(order.getItems());
+            engine.add(order.getCreditCard());
         }
     }
 
