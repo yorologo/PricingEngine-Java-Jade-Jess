@@ -25,17 +25,17 @@ public class CatalogItem {
     // fields
     @Id
     @GeneratedValue
-    @Column(name = "id")
-    private int m_id;
+    @Column(name = "partNumber")
+    private int m_partNumber;
 
     @Column(name = "description", nullable = false)
     private String m_description;
 
-    @Column(name = "partNumber")
-    private int m_partNumber;
-
     @Column(name = "price", nullable = false)
     private double m_price;
+
+    @Column(name = "quantity", nullable = false)
+    private int m_quantity;
 
     /**
      * Constructor
@@ -51,23 +51,23 @@ public class CatalogItem {
      * 
      * Example: CatalogItem myCatalogItem = new CatalogItem( val1, val2,.. );
      */
-    public CatalogItem(int id, String description, int partNumber, double price) {
-        this.setId(id);
-        this.setDescription(description);
+    public CatalogItem(int partNumber, String description, double price, int quantity) {
         this.setPartNumber(partNumber);
+        this.setDescription(description);
         this.setPrice(price);
+        this.setQuantity(quantity);
     }
 
     /**
      * Getters and Setters
      */
 
-    public int getId() {
-        return this.m_id;
+    public int getPartNumber() {
+        return this.m_partNumber;
     }
 
-    public void setId(int id) {
-        this.m_id = id;
+    public void setPartNumber(int partNumber) {
+        this.m_partNumber = partNumber;
     }
 
     public String getDescription() {
@@ -78,20 +78,20 @@ public class CatalogItem {
         this.m_description = description;
     }
 
-    public int getPartNumber() {
-        return this.m_partNumber;
-    }
-
-    public void setPartNumber(int partNumber) {
-        this.m_partNumber = partNumber;
-    }
-
     public double getPrice() {
         return this.m_price;
     }
 
     public void setPrice(double price) {
         this.m_price = price;
+    }
+
+    public int getQuantity() {
+        return this.m_quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.m_quantity = quantity;
     }
 
     /**
