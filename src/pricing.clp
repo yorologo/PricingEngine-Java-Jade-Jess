@@ -3,13 +3,17 @@
 ;; it just tells Jess to examine the classes and set up templates
 ;; using their properties
 
-(import gov.sandia.jess.example.pricing.model.*)
-(import gov.sandia.jess.example.pricing.model.items.*)
+(import gov.sandia.jess.example.pricing.model.Order)
+(import gov.sandia.jess.example.pricing.model.OrderItem)
+(import gov.sandia.jess.example.pricing.model.Customer)
+(import gov.sandia.jess.example.pricing.model.Offer)
+(import gov.sandia.jess.example.pricing.model.items.CreditCard)
+(import catalog.model.CatalogItem)
 (deftemplate Order       (declare (from-class Order)))
 (deftemplate OrderItem   (declare (from-class OrderItem)))
 (deftemplate CatalogItem (declare (from-class CatalogItem)))
 (deftemplate Customer    (declare (from-class Customer)))
-(deftemplate CreditCard    (declare (from-class CreditCard)))
+(deftemplate CreditCard  (declare (from-class CreditCard)))
 
 ;; Now define the pricing rules themselves. Each rule matches a set
 ;; of conditions and then creates an Offer object to represent a
@@ -31,10 +35,10 @@
 
 (defrule free-cd-rw-disks
     "If somebody buys a CD writer, send them a free sample of CD-RW
-    disks, catalog number 782321; but only if they're a repeat customer.
+    disks, catalog number 2; but only if they're a repeat customer.
     We use a regular expression to match the CD writer's description."
     (CatalogItem (partNumber ?partNumber) (description /CD Writer/))
-    (CatalogItem (partNumber 782321) (price ?price))
+    (CatalogItem (partNumber 2) (price ?price))
     (OrderItem (partNumber ?partNumber))
     (Customer {orderCount > 1})
     =>	
