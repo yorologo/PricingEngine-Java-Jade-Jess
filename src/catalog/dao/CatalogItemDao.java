@@ -22,7 +22,7 @@ public class CatalogItemDao {
     /*
      * Returns one CatalogItem object or null if not found
      */
-    public CatalogItem getByID(Integer id) {
+    public static CatalogItem getByID(Integer id) {
         CatalogItem catalogitem = null;
         // Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -30,7 +30,7 @@ public class CatalogItemDao {
         try {
             // trans = session.beginTransaction();
 
-            CatalogItem catalogitem = (CatalogItem) session.get(CatalogItem.class, id);
+            catalogitem = (CatalogItem) session.get(CatalogItem.class, id);
 
             // trans.commit();
         } catch (HibernateException e) {
@@ -45,7 +45,7 @@ public class CatalogItemDao {
     /*
      * Adds a new CatalogItem object and return the id
      */
-    public int add(CatalogItem catalogitem) {
+    public static int add(CatalogItem catalogitem) {
         Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         int id = 0;
@@ -70,7 +70,7 @@ public class CatalogItemDao {
     /*
      * Updates CatalogItem object
      */
-    public void update(CatalogItem catalogitem) {
+    public static void update(CatalogItem catalogitem) {
         Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
 
@@ -93,7 +93,7 @@ public class CatalogItemDao {
     /*
      * Deletes one CatalogItem record
      */
-    public boolean deleteByID(Integer id) {
+    public static boolean deleteByID(Integer id) {
         boolean deleted = false;
         Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -124,7 +124,7 @@ public class CatalogItemDao {
     /*
      * Returns a list of CatalogItem objects
      */
-    public List<CatalogItem> getAll() {
+    public static List<CatalogItem> getAll() {
         List<CatalogItem> list = new ArrayList<CatalogItem>();
         // Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
