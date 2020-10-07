@@ -3,6 +3,8 @@ Proyecto para la clase de Inteligencia artificial donde reutilizo el ejemplo Pri
 
 ## Requisitos:
 * Java
+* JADE (Java Agent DEvelopment Framework)
+* Jess
 * JDK8
 * Sistema de gestión de bases de datos MySQL o MariaDB
 
